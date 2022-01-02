@@ -853,6 +853,116 @@ case prefix+'report':
         limitAdd(sender, limit)
         break
 //game & fun menu
+case prefix+'slot':
+  if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+  const pepekk = [
+        '🍊 : 🍒 : 🍐',
+        '🍒 : 🔔 : 🍊',
+        '🍇 : 🍇 : 🍐',
+        '🍊 : 🍋 : 🔔', //Arasya
+        '🔔 : 🍒 : 🍐',
+        '🔔 : 🍒 : 🍊',
+        '🍊 : 🍋 : 🔔',        
+        '🍐 : 🍒 : 🍋',
+        '🍐 : 🍒 : 🍐',
+        '🍊 : 🍒 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🍌 : 🍌 : 🔔',
+        '🥑 : 🥑 : 🥑 Win👑',
+        '🍐 : 🔔 : 🔔',
+        '🍊 : 🍋 : 🍒',
+        '🌶️ : 🌶️ : 🌶️ Win👑',
+        '🍋 : 🍋 : 🍋 Win👑',
+        '🔔 : 🔔 : 🍇',
+        '🔔 : 🍇 : 🍇', 
+        '🔔 : 🍐 : 🔔',
+        '🍌 : 🍌 : 🍌 Win👑'
+        ]
+  const kalah = [
+        '🍊 : 🍒 : 🍐',
+        '🍒 : 🔔 : 🍊',
+        '🍇 : 🍇 : 🍐',
+        '🍊 : 🍋 : 🔔', //Arasya
+        '🔔 : 🍒 : 🍐',
+        '🔔 : 🍒 : 🍊',
+        '🍊 : 🍋 : 🔔',        
+        '🍐 : 🍒 : 🍋',
+        '🍐 : 🍒 : 🍐',
+        '🍊 : 🍒 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🍌 : 🍌 : 🔔',
+        '🍐 : 🔔 : 🔔',
+        '🍊 : 🍋 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🔔 : 🍇 : 🍇', 
+        '🔔 : 🍐 : 🔔',
+        ]
+ const kalah2 = [
+        '🍊 : 🍒 : 🍐',
+        '🍒 : 🔔 : 🍊',
+        '🍇 : 🍇 : 🍐',
+        '🍊 : 🍋 : 🔔', //Arasya
+        '🔔 : 🍒 : 🍐',
+        '🔔 : 🍒 : 🍊',
+        '🍊 : 🍋 : 🔔',        
+        '🍐 : 🍒 : 🍋',
+        '🍐 : 🍒 : 🍐',
+        '🍊 : 🍒 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🍌 : 🍌 : 🔔',
+        '🍐 : 🔔 : 🔔',
+        '🍊 : 🍋 : 🍒',
+        '🔔 : 🔔 : 🍇',
+        '🔔 : 🍇 : 🍇', 
+        '🔔 : 🍐 : 🔔',
+        ]
+        const selot = pepekk[Math.floor(Math.random() * pepekk.length)]
+        const kalahnya = kalah[Math.floor(Math.random() * kalah.length)]
+        const kalahnya2 = kalah2[Math.floor(Math.random() * kalah2.length)]
+        var slotnya = `*[ 🎰 GAME SLOT 🎰 ]*
+
+${kalahnya}
+${selot}
+${kalahnya2}
+
+Note : Jika Kamu Mendapatkan Item Yang Sama, Kamu Menang!!!
+Contoh : 🔔 : 🔔 : 🔔`
+        var but = [{buttonId: `${command}`, buttonText: { displayText: "Kembali Slot" }, type: 1 }]
+conn.sendMessage(from, { text: slotnya, buttons: but, footer: "© Slot By Arasya\n@sofunsyabi.id", templateButtons: but }, {quoted: msg})
+gameAdd(sender, glimit)
+        break
+case prefix+'cekme':
+  case prefix+'me':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  const ganteng = ['Cakep ✔️','Jelek Anjrit ❌']
+  const sifat = ['Pembohong','Galak','Suka Bantu Orang','Baik','Jahat:(','Bobrok','Suka BadMood','Setia','Tulus','Beriman','Penyayang Binatang','Baperan']
+  const suka = ['Makan','Tidur','Main Game','Sesama Jenis','Binatang',`Seseorang Yang ${pushname} Sukai`,'Belajar','Ibadah','Diri Sendiri']
+  const number = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','31','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','82','84','84','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+  const keberanian = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','31','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','82','84','84','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+  const kepinteran = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','31','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','82','84','84','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+					const ganz = ganteng[Math.floor(Math.random() * ganteng.length)]
+					const sipat = sifat[Math.floor(Math.random() * sifat.length)]
+					const numb = number[Math.floor(Math.random() * number.length)]
+					const gai = suka[Math.floor(Math.random() * suka.length)]
+					const berani = keberanian[Math.floor(Math.random() * keberanian.length)]
+					const pinter = kepinteran[Math.floor(Math.random() * kepinteran.length)]
+  var cek = `*[ CEK PRIBADI KAMU ]*
+ 
+Nama : ${pushname}
+Sifat : ${sipat}
+Keberanian : ${berani}%
+Ketakutan : ${numb}%
+Cakep : ${ganz}
+Cek Pintar : ${pinter}%
+Menyukai : ${gai}
+  `
+var but = [{buttonId: '/y', buttonText: { displayText: 'BUKAN PRIBADI GUA' }, type: 1 }]
+					conn.sendMessage(from, { caption: cek, image: { url: `https://textpro.me/images/user_image/2022/01/61d195901d4c3.jpg` }, buttons: but, footer: '© JojoBot' }, { quoted: msg })
+				    limitAdd(sender, limit)
+				    break
+case prefix+'y':
+  reply("Yah maaf ya kak:(")
+  break
 case prefix+'apakah':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
@@ -947,7 +1057,7 @@ limitAdd(sender, limit)
                         ditantang: mentionByTag[0],
                         TicTacToe: ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣']
                      })
-					 gameAdd(sender, limit)
+					 gameAdd(sender, glimit)
                 } else {
                     reply(`Kirim perintah *${prefix}tictactoe* @tag`)
                 }
@@ -1174,129 +1284,6 @@ case prefix+'add':
                     textImg(`Limit : ${isPremium ? 'Unlimited' : limitPrib}\nLimit Game : ${cekGLimit(sender, gcount, glimit)}/${gcount}\nBalance : $${getBalance(sender, balance)}\n\nKamu dapat membeli limit dengan ${prefix}buylimit dan ${prefix}buyglimit untuk membeli game limit`)
                 }
 				break
-				//Maker Bro
-case prefix+'glitch':
-  var glitch = chats.slice(7)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/glitch?text=${glitch}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'neon':
-  var neon = chats.slice(6)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/neon?text=${neon}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'black':
-  var black = chats.slice(6)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/black?text=${black}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'fiction':
-  var fiction = chats.slice(8)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/fiction?text=${fiction}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'blackpink':
-  var blackpink = chats.slice(10)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/bp?text=${blackpink}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-  case prefix+'neonlight':
-    var neonlight = chats.slice(10)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/neonlight?text=${neonlight}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'toxic':
-  var toxic = chats.slice(6)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/toxic?text=${toxic}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'matrix':
-  var matrix = chats.slice(7)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/matrix?text=${matrix}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'neonpl':
-  var neonpl = chats.slice(7)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/neonpl?text=${neonpl}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'breakwall':
-  var breakwall = chats.slice(10)
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/breakwall?text=${breakwall}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'grafity':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo/Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/grafity?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'grafity2':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/grafity2?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'gameover':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/gameover?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'glitchtt':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/glitchtiktok?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'pornhub':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/pornhub?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
-case prefix+'wolflogo':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Mu\nContoh ${command} Jojo Bot`)
-  reply(mess.wait)
-  conn.sendMessage(from, { image: { url: `https://melcanz.com/textpro/logowolf?text=${args[1]}&text2=${args[2]}&apikey=${apikey}`}})
-  limitAdd(sender, limit)
-  break
 //Api Anto
 case prefix+'ssweb':
   if (!isUrl(args[1])) return reply(mess.error.Iv)
@@ -1360,6 +1347,7 @@ Silahkan Pilih Type Buku/Folio Berikut
 Note : Anggap "<" dan ">" Tidak Ada
  `)
  break
+//maker anto
 			default:
 			if (!isGroup && isCmd) {
 				reply(`Command belum tersedia, coba beberapa hari kedepan yaa! _^`)

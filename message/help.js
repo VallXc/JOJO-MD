@@ -96,6 +96,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *( 🎮 )  Game & Fun Menu*
   ≻ ${prefix}tictactoe @tag
   ≻ ${prefix}delttc
+  ≻ ${prefix}slot
   ≻ ${prefix}tebakgambar
   ≻ ${prefix}apakah <Query>
   ≻ ${prefix}kapankah <Query>
@@ -107,6 +108,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}lesbicek <Nama>
   ≻ ${prefix}gimana <Query>
   ≻ ${prefix}bisakah <Query>
+  ≻ ${prefix}cekme
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
@@ -115,25 +117,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}limit
   ≻ ${prefix}balance
   ≻ ${prefix}topbalance
-  
-  *( 🎨 ) Maker Menu*
-  ≻ ${prefix}glitch <Text>
-  ≻ ${prefix}neon <Text>
-  ≻ ${prefix}black <Text>
-  ≻ ${prefix}glitch <Text>
-  ≻ ${prefix}fiction <Text>
-  ≻ ${prefix}blackpink <Text>
-  ≻ ${prefix}neonlight <Text>
-  ≻ ${prefix}toxic <Text>
-  ≻ ${prefix}matrix <Text>
-  ≻ ${prefix}neonpl <Text>
-  ≻ ${prefix}breakwall <Text>
-  ≻ ${prefix}grafity <Text> <Text>
-  ≻ ${prefix}grafity2 <Text> <Text>
-  ≻ ${prefix}gameover <Text> <Text>
-  ≻ ${prefix}glitchtt <Text> <Text>
-  ≻ ${prefix}pornhub <Text> <Text>
-  ≻ ${prefix}wolflogo <Text> <Text>
 
   *( 👥 )  Group Menu*
   ≻ ${prefix}linkgrup
