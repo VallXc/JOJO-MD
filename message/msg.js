@@ -771,14 +771,12 @@ case prefix+'husbu':
 			    limitAdd(sender, limit)
  			    break
 			// Search Menu
-			case prefix+'lirik': case 'liriklagu':
+case prefix+'lirik':
+  if (args.length < 2) return reply(`Liriknya mana?Kirim perintah ${command} Nama lagu\nContoh ${command} Indonesia Raya`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				if (args.length < 2) return reply(`Kirim perintah ${command} judul lagu`)
-				reply(mess.wait)
-			    ra.Musikmatch(q).then(async(data) => {
-				  var teks = `*${data.result.judul} - ${data.result.penyanyi}*\n\n${data.result.lirik}`
-				  conn.sendMessage(from, { image: { url: data.result.thumb }, caption: teks }, { quoted: msg })
-				}).catch(() => reply(`Judul lagu tidak ditemukan`))
+reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon berarti liriknya gak ketemu ya:(")
+				var data = await fetchJson(`https://hardianto.xyz/api/info/lirik?query=${q}&apikey=hardianto`)
+			    reply(`*Nama Lagu :* ${q}\n*Lirik Lagu :* ${data.lirik}`)
 				limitAdd(sender, limit)
 				break
 			case prefix+'grupwa': case prefix+'searchgrup':

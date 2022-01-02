@@ -160,5 +160,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   - Allah SWT
   - Baileys-Md (Adiwa Jshing)
   - @yannnnn.zz_ (Riyan)
-  - @sofunsyabi.id (Arasya)`
+  - @sofunsyabi.id (Arasya)
+  - @melcanz_ (Amel)
+  - @hardianto.xyz (Anto)`
 }
