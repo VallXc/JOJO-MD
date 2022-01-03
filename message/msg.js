@@ -30,8 +30,10 @@ const ms = require("parse-ms");
 
 //Apikey melcanz, Search aja melcanz.aja
 //Apikey Anto = hardianto
+//Apikey jojo = Syaa
 const apikey = "melcantik"
 const keyanto = "hardianto"
+const jojoapi = "Syaa"
 
 // Exif
 const Exif = require("../lib/exif")
@@ -61,7 +63,7 @@ module.exports = async(conn, msg, m, setting) => {
 		let dt = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 		const ucapanWaktu = "Selamat "+dt.charAt(0).toUpperCase() + dt.slice(1)
 		const content = JSON.stringify(msg.message)
-		const from = msg.key.remoteJid
+		const from = remoteJid
 		const chats = (type === 'conversation' && msg.message.conversation) ? msg.message.conversation : (type == 'imageMessage') && msg.message.imageMessage.caption ? msg.message.imageMessage.caption : (type == 'documentMessage') && msg.message.documentMessage.caption ? msg.message.documentMessage.caption : (type == 'videoMessage') && msg.message.videoMessage.caption ? msg.message.videoMessage.caption : (type == 'extendedTextMessage') && msg.message.extendedTextMessage.text ? msg.message.extendedTextMessage.text : (type == 'buttonsResponseMessage' && msg.message.buttonsResponseMessage.selectedButtonId) ? msg.message.buttonsResponseMessage.selectedButtonId : (type == 'templateButtonReplyMessage') && msg.message.templateButtonReplyMessage.selectedId ? msg.message.templateButtonReplyMessage.selectedId : ''
 		const toJSON = j => JSON.stringify(j, null,'\t')
 		if (conn.multi) {
@@ -686,7 +688,7 @@ case prefix+'groupjojo':
 			case prefix+'quote': case prefix+'quotes':
 			case prefix+'randomquote': case prefix+'randomquotes':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/randomquote?apikey=Syaa`)
+				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/randomquote?apikey=${jojoapi}`)
 				var anjayani = `${data.result.quotes}\n\nQuotes By - ${data.result.author}`
 			    var but = [{buttonId: `${command}`, buttonText: { displayText: "Get Quotes" }, type: 1 }]
 conn.sendMessage(from, { text: anjayani, buttons: but, footer: "© Jojo Bot", templateButtons: but }, {quoted: msg})
@@ -696,7 +698,7 @@ case prefix+'shortlink':
   if (args.length < 2) return reply(`Kirim perintah ${command} link`)
   if (!isUrl(args[1])) return reply("Masukan Link")
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/short/tiny?url=${args[1]}&apikey=Syaa`)
+				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/short/tiny?url=${args[1]}&apikey=${jojoapi}`)
 			    reply(`Link : ${data.result.link}`)
 				limitAdd(sender, limit)
 				break
@@ -704,7 +706,7 @@ case prefix+'kbbi':
   if (args.length < 2) return reply(`Kirim perintah ${command} jembatan`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    const kbbi = args.join(" ")
-				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/kbbi?kata=${args[1]}&apikey=Syaa`)
+				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/kbbi?kata=${args[1]}&apikey=${jojoapi}`)
 			    reply(`Kata : ${kbbi}\nArti : ${data.result.arti}`)
 				limitAdd(sender, limit)
 				break
@@ -855,6 +857,37 @@ case prefix+'report':
         limitAdd(sender, limit)
         break
 //game & fun menu
+//suit menu
+case prefix+'suit':
+  var but = [{buttonId: `/sbatu`, buttonText: { displayText: "Batu ✊" }, type: 1 }, {buttonId: `/sgunting`, buttonText: { displayText: "Gunting ✌️" }, type: 1 }, {buttonId: `/skertas`, buttonText: { displayText: "Kertas ✋" }, type: 1 }]
+  var sutit = `*[ GAME SUIT ]*\n\nNOTE : *KAMU MEMILIKI 3 BUTTON DAN 3 KESEMPATAN UNTUK MEMILIH ANTARA BATU GUNTING KERTAS\nJIKA KAMU MEMENANGKAN 3 KESEMPATAN PERMAINAN BATU GUNTING KERTAS\n*KAMU MENANG!!*`
+conn.sendMessage(from, { text: sutit, buttons: but, footer: "Pilih Button Di Bawah\n\n- _Jika Kamu Pakai WhatsApp Mod Langsung Saja Ketik /sgunting, /sbatu, /skertas_", templateButtons: but }, {quoted: msg})
+break
+case prefix+'sbatu':
+  if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+  const batu = [`Aku Memilih *Batu*\nKamu Memilih *Batu*\n\n!! KITA SERI !!`,`Aku Memilih *Gunting*\nKamu Memilih *Batu*\n\n!! KAMU MENANG:( !!`,`Aku Memilih *Kertas*\nKamu Memilih *Batu*\n\n!! AKU MENANG !!`]
+					const batuh = batu[Math.floor(Math.random() * batu.length)]
+					var batuh2 = `*[ GAME SUIT ]*\n\n${batuh}`
+					conn.sendMessage(from, { text: batuh2 }, { quoted: msg })
+gameAdd(sender, glimit)
+break
+case prefix+'sgunting':
+  if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+  const gunting = [`Aku Memilih *Batu*\nKamu Memilih *Gunting*\n\n!! AKU MENANG !!`,`Aku Memilih *Gunting*\nKamu Memilih *Gunting*\n\n!! KITA SERI !!`,`Aku Memilih *Kertas*\nKamu Memilih *Gunting*\n\n!! KAMU MENANG :( !!`]
+					const guntingh = gunting[Math.floor(Math.random() * gunting.length)]
+					var guntingh2 = `*[ GAME SUIT ]*\n\n${guntingh}`
+					conn.sendMessage(from, { text: guntingh2 }, { quoted: msg })
+gameAdd(sender, glimit)
+break
+case prefix+'skertas':
+  if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
+  const kertas = [`Aku Memilih *Batu*\nKamu Memilih *Kertas*\n\n!! KAMU MENANG :( !!`,`Aku Memilih *Gunting*\nKamu Memilih *Kertas*\n\n!! KAMU KALAH !!`,`Aku Memilih *Kertas*\nKamu Memilih *Kertas*\n\n!! KITA SERI !!`]
+					const kertash = kertas[Math.floor(Math.random() * kertas.length)]
+					var kertash2 = `*[ GAME SUIT ]*\n\n${kertash}`
+					conn.sendMessage(from, { text: kertash2 }, { quoted: msg })
+gameAdd(sender, glimit)
+break
+//akher nsfw
 case prefix+'slot':
   if (isGame(sender, isOwner, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
   const pepekk = [
@@ -1345,71 +1378,69 @@ Note : Anggap "<" dan ">" Tidak Ada
  break
 //nsfw
 case prefix+'ass':
-
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ass?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ass?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'bdsm':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/bdsm?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/bdsm?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'ahegao':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ahegao?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ahegao?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'blowjob':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/blowjob?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/blowjob?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'cuckold':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cuckold?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cuckold?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'cum':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cum?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cum?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'ero':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ero?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ero?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'femdom':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/femdom?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/femdom?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'foot':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/foot?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/foot?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'gangbang':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/gangbang?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/gangbang?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'glasses':
   if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/glasses?apikey=Syaa")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/glasses?apikey=${jojoapi}")
 var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break

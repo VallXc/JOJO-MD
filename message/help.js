@@ -85,7 +85,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}femdom
   ≻ ${prefix}foot
   ≻ ${prefix}gangbang
-  ≻ ${prefix}glasses
+  
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -107,6 +107,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *( 🎮 )  Game & Fun Menu*
   ≻ ${prefix}tictactoe @tag
   ≻ ${prefix}delttc
+  ≻ ${prefix}suit
   ≻ ${prefix}slot
   ≻ ${prefix}tebakgambar
   ≻ ${prefix}apakah <Query>
