@@ -686,8 +686,10 @@ case prefix+'groupjojo':
 			case prefix+'quote': case prefix+'quotes':
 			case prefix+'randomquote': case prefix+'randomquotes':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-				var data = await fetchJson(`https://megayaa.herokuapp.com/api/randomquote`)
-			    reply(data.result.quotes+'\n\n-- '+data.result.author)
+				var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/randomquote?apikey=Syaa`)
+				var anjayani = `${data.result.quotes}\n\nQuotes By - ${data.result.author}`
+			    var but = [{buttonId: `${command}`, buttonText: { displayText: "Get Quotes" }, type: 1 }]
+conn.sendMessage(from, { text: anjayani, buttons: but, footer: "© Jojo Bot", templateButtons: but }, {quoted: msg})
 				limitAdd(sender, limit)
 				break
 case prefix+'shortlink':
@@ -1294,12 +1296,6 @@ case prefix+'ssweb':
   conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/tools/ssweb?url=${seweb}&apikey=${keyanto}`}})
   limitAdd(sender, limit)
   break
-case prefix+'hentai':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
-   var data = await getBuffer(`https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}`)
-				var but = [{buttonId: `/hentai`, buttonText: { displayText: "Kirim Hentai Lagi" }, type: 1 }]
-				conn.sendMessage(from, { caption: "Hentai For Premium", image: { url: `https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}` }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
-				break
 case prefix+'nuliskanan':
   var kanan = chats.slice(11)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1347,7 +1343,82 @@ Silahkan Pilih Type Buku/Folio Berikut
 Note : Anggap "<" dan ">" Tidak Ada
  `)
  break
-//maker anto
+//nsfw
+case prefix+'ass':
+
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ass?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'bdsm':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/bdsm?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'ahegao':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ahegao?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'blowjob':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/blowjob?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'cuckold':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cuckold?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'cum':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/cum?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'ero':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/ero?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'femdom':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/femdom?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'foot':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/foot?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'gangbang':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/gangbang?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'glasses':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+  var data = await fetchJson("https://docs-jojoapi.herokuapp.com/api/nsfw/glasses?apikey=Syaa")
+var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, type: 1 }]
+					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+					break
+case prefix+'hentai':
+  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
+   var data = await getBuffer(`https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}`)
+				var but = [{buttonId: `/hentai`, buttonText: { displayText: "Kirim Hentai Lagi" }, type: 1 }]
+				conn.sendMessage(from, { caption: "Hentai For Premium", image: { url: `https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}` }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+				break
 			default:
 			if (!isGroup && isCmd) {
 				reply(`Command belum tersedia, coba beberapa hari kedepan yaa! _^`)

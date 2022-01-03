@@ -75,6 +75,17 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   
   *( ⚠️ )  Nsfw Premium*
   ≻ ${prefix}hentai
+  ≻ ${prefix}ass
+  ≻ ${prefix}bdsm
+  ≻ ${prefix}ahegao
+  ≻ ${prefix}cuckold
+  ≻ ${prefix}blowjob
+  ≻ ${prefix}cum
+  ≻ ${prefix}ero
+  ≻ ${prefix}femdom
+  ≻ ${prefix}foot
+  ≻ ${prefix}gangbang
+  ≻ ${prefix}glasses
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
