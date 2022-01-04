@@ -308,11 +308,11 @@ if (chats.startsWith("@6288213292687")){
 		
 		// Logs;
 		if (!isGroup && isCmd && !fromMe) {
-			addBalance(sender, randomNomor(20), balance)
+			addBalance(sender, randomNomor(45), balance)
 			console.log('->[\x1b[1;32mCMD\x1b[1;37m]', color(moment(msg.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname))
 		}
 		if (isGroup && isCmd && !fromMe) {
-			addBalance(sender, randomNomor(20), balance)
+			addBalance(sender, randomNomor(45), balance)
 			console.log('->[\x1b[1;32mCMD\x1b[1;37m]', color(moment(msg.messageTimestamp *1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname), 'in', color(groupName))
 		}
 
@@ -709,6 +709,14 @@ case prefix+'shortlink':
 			    reply(`Link : ${data.result.link}`)
 				limitAdd(sender, limit)
 				break
+case prefix+'hitungmundur':
+  if (args.length < 2) return reply(`Mana tanggalnya?\nContoh : ${prefix}hitungmundur 12 10 2022`)
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+			    if (isNaN(args[1], args[2], args[3])) return reply(`Harus berupa angka`)
+				var data = await fetchJson(`https://melcanz.com/countdown?tanggal=${args[1]}&bulan=${args[2]}&tahun=${args[3]}&apikey=${apikey}`)
+			    reply(`Terisisa ${data.result}`)
+				limitAdd(sender, limit)
+				break
 case prefix+'kbbi':
   if (args.length < 2) return reply(`Kirim perintah ${command} jembatan`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -998,7 +1006,7 @@ Cakep : ${ganz}
 Cek Pintar : ${pinter}%
 Menyukai : ${gai}
   `
-var but = [{buttonId: '/n', buttonText: { displayText: 'Cocok' }, type: 1 }, {buttonId: '/y', buttonText: { displayText: 'Gak Cocok' }, type: 1 }]
+var but = [{buttonId: '/y', buttonText: { displayText: 'Cocok' }, type: 1 }, {buttonId: '/n', buttonText: { displayText: 'Gak Cocok' }, type: 1 }]
 					conn.sendMessage(from, { caption: cek, image: { url: `https://textpro.me/images/user_image/2022/01/61d195901d4c3.jpg` }, buttons: but, footer: '© JojoBot' }, { quoted: msg })
 				    limitAdd(sender, limit)
 				    break
