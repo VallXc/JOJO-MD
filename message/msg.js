@@ -529,7 +529,7 @@ case prefix+'groupjojo':
                 await sendPlay(from, q)
 				limitAdd(sender, limit)
                 break
-			case prefix+'ytmp4': case prefix+'mp4':
+case prefix+'ytmp4': case prefix+'mp4':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
@@ -541,19 +541,16 @@ case prefix+'groupjojo':
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 			    break
-			case prefix+'ytmp3': case prefix+'mp3':
-			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+case prefix+'ytmp3':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    xfar.Youtube(args[1]).then( data => {
-			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
-			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
-			      conn.sendMessage(from, { document: { url: data.medias[7].url }, fileName: `${data.title}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
-			      limitAdd(sender, limit)
-				}).catch(() => reply(mess.error.api))
-			    break
+			    var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=${jojoapi}`)
+			    conn.sendMessage(from, { audio: { url: data.result.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
 			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
@@ -1345,6 +1342,13 @@ case prefix+'ssweb':
   if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
   reply(mess.wait)
   conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/tools/ssweb?url=${seweb}&apikey=${keyanto}`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'repeat':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (isNaN(args[2])) return reply(`Harus berupa angka`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} Text Jumlah\nContoh ${command} Jojo 12`)
+  reply(`${args[1]}`.repeat({args[2]}))
   limitAdd(sender, limit)
   break
 case prefix+'nuliskanan':
