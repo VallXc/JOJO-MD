@@ -91,7 +91,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}shortlink <Link>
   ≻ ${prefix}ssweb <Link>
   ≻ ${prefix}kbbi <Kata>
-  
+  ≻ ${prefix}covid19
+
   *( ✍️ )  Menu Tulis*
   ≻ ${prefix}nuliskanan <Text>
   ≻ ${prefix}nuliskiri <Text>
