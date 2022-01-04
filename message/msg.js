@@ -1560,7 +1560,7 @@ break
 case prefix+'say': case prefix+'tts':
   if (args.length < 2) return reply(`Kirim perintah ${command} Text`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: t'audio
+   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true})
 limitAdd(sender, limit)
    break
 			default:
