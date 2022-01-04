@@ -35,7 +35,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
 	Balance : $${toCommas(getBalance(sender, balance))}
   Note : Anggap _<>_ *Tidak Ada*
   
-  _Ada Bug? Ketik ${prefix}report Bug mu
+  _Ada Bug? Ketik ${prefix}report Bug mu_
   
   *( 📍 )  Main Menu*
   ≻ ${prefix}menu
@@ -86,6 +86,20 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}foot
   ≻ ${prefix}gangbang
   
+  *( 🎨 )  Menu Maker By HadiApi*
+  ≻ ${prefix}glitch <Text> <Text>
+  ≻ ${prefix}flaming <Text>
+  ≻ ${prefix}shadow <Text>
+  ≻ ${prefix}wolftext <Text>
+  ≻ ${prefix}cup <Text>
+  ≻ ${prefix}cup2 <Text>
+  ≻ ${prefix}romantic <Text>
+  ≻ ${prefix}writetext <Text>
+  ≻ ${prefix}lovetext <Text>
+  ≻ ${prefix}lovetext2 <Text>
+  ≻ ${prefix}undergrass <Text>
+  ≻ ${prefix}coffecup <Text>
+  ≻ ${prefix}woodheart <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -158,6 +172,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   - Baileys-Md (Adiwa Jshing)
   - @yannnnn.zz_ (Riyan)
   - @sofunsyabi.id (Arasya)
+  - M Hadi Firmansya (Hadi Api)
   - @melcanz_ (Amel)
   - @hardianto.xyz (Anto)`
 }
