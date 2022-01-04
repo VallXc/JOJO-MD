@@ -1348,7 +1348,8 @@ case prefix+'repeat':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   if (isNaN(args[2])) return reply(`Harus berupa angka`)
   if (args.length < 2) return reply(`Kirim Perintah ${command} Text Jumlah\nContoh ${command} Jojo 12`)
-  reply(`${args[1]}`.repeat({args[2]}))
+  
+  reply(`${q}`.repeat({args[2]}))
   limitAdd(sender, limit)
   break
 case prefix+'nuliskanan':
