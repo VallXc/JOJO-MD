@@ -45,7 +45,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}runtime
   ≻ ${prefix}cekprem
   ≻ ${prefix}listprem
-  ≻ ${prefix}repeat <Text> <Jumlah>
   ≻ ${prefix}jo <Text>
 
   *( ✏️ )  Converter/Tools*
