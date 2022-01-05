@@ -1600,7 +1600,7 @@ case prefix+'quranaudio': case prefix+'quranvn':
   var data = await fetchJson(`https://hardianto.xyz/api/muslim/quran?surah=${args[1]}&ayat=${args[2]}&apikey=${keyanto}`)
 
 conn.sendMessage(from, { audio: {url : pickRandom(data.result.data.audio.secondary)}, mimetype: 'audio/mp4', ptt: true})
-limirAdd(sender, 
+limirAdd(sender, limit)
 break
 case prefix+'quran':
   if (args.length < 2) return reply(`Kirim perintah ${command} Nomer`)
