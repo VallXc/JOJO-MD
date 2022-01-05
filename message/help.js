@@ -105,6 +105,10 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}shortlink <Link>
   ≻ ${prefix}ssweb <Link>
   ≻ ${prefix}kbbi <Kata>
+  ≻ ${prefix}darkjokes
+  ≻ ${prefix}quran <nomer>
+  ≻ ${prefix}quranaudio <surah> <ayat>
+  ≻ ${prefix}listquran <nomer>
   ≻ ${prefix}covid19
   ≻ ${prefix}say <Text>
   ≻ ${prefix}hitungmundur 12 10 2022
