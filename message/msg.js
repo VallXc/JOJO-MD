@@ -793,7 +793,7 @@ case prefix+'lirik':
   if (args.length < 2) return reply(`Liriknya mana?Kirim perintah ${command} Nama lagu\nContoh ${command} Indonesia Raya`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon berarti liriknya gak ketemu ya:(")
-				var data = await fetchJson(`https://hardianto.xyz/api/info/lirik?query=${q}&apikey=hardianto`)
+				var data = await fetchJson(`https://hardianto.xyz/api/info/lirik?query=${q}&apikey=${keyanto}`)
 			    reply(`*Nama Lagu :* ${q}\n*Lirik Lagu :* ${data.lirik}`)
 				limitAdd(sender, limit)
 				break
@@ -1346,6 +1346,24 @@ case prefix+'ssweb':
   conn.sendMessage(from, { image: { url: `https://hardianto.xyz/api/tools/ssweb?url=${seweb}&apikey=${keyanto}`}})
   limitAdd(sender, limit)
   break
+  case prefix+'sshpfull':
+  if (!isUrl(args[1])) return reply(mess.error.Iv)
+  var seweb = chats.slice(7)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hadi-api.herokuapp.com/api/ssweb?url=${q}&device=phone&full=on`}})
+  limitAdd(sender, limit)
+  break
+case prefix+'ssdesktop':
+  if (!isUrl(args[1])) return reply(mess.error.Iv)
+  var seweb = chats.slice(7)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  if (args.length < 2) return reply(`Kirim Perintah ${command} link Mu\nContoh ${command} https://github.com/GetSya`)
+  reply(mess.wait)
+  conn.sendMessage(from, { image: { url: `https://hadi-api.herokuapp.com/api/ssweb?url=${q}&device=desktop&full=on`}})
+  limitAdd(sender, limit)
+  break
 case prefix+'nuliskanan':
   var kanan = chats.slice(11)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1565,6 +1583,15 @@ case prefix+'say': case prefix+'tts':
    conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true})
 limitAdd(sender, limit)
    break
+case prefix+'nabi': case prefix+'kisahnabi':
+  if (args.length < 2) return reply(`Kirim perintah ${command} Nama Nabi\nContoh : ${command} Muhammad`)
+  if (!isUrl(args[1])) return reply("Masukan Link")
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				var data = await fetchJson(`https://hardianto.xyz/api/muslim/kisahnabi?nabi=${q}&apikey=${keyanto}`)
+				var kisahnya = `*Nama Nabi :* ${data.result.name}\n*Kelahiran :* ${data.result.wafat_usia}\n*Tempat Tinggal :* ${data.result.singgah}\n*Kisah Nabi :* ${data.result.kisah}`
+			    reply(kisahnya)
+				limitAdd(sender, limit)
+				break
 case prefix+'quranaudio': case prefix+'quranvn':
   if (args.length < 2) return reply(`Kirim perintah ${command} surah ayat\nContoh : ${command} 1 2`)
   if (isNaN(args[1])) return reply(`Harus berupa angka`)
@@ -1573,7 +1600,7 @@ case prefix+'quranaudio': case prefix+'quranvn':
   var data = await fetchJson(`https://hardianto.xyz/api/muslim/quran?surah=${args[1]}&ayat=${args[2]}&apikey=${keyanto}`)
 
 conn.sendMessage(from, { audio: {url : pickRandom(data.result.data.audio.secondary)}, mimetype: 'audio/mp4', ptt: true})
-limirAdd(sender, limit)
+limirAdd(sender, 
 break
 case prefix+'quran':
   if (args.length < 2) return reply(`Kirim perintah ${command} Nomer`)

@@ -104,14 +104,19 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
   ≻ ${prefix}ssweb <Link>
+  ≻ ${prefix}ssdesktop <Link>
+  ≻ ${prefix}sshpfull <Link>
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}darkjokes
-  ≻ ${prefix}quran <nomer>
-  ≻ ${prefix}quranaudio <surah> <ayat>
-  ≻ ${prefix}listquran <nomer>
   ≻ ${prefix}covid19
   ≻ ${prefix}say <Text>
   ≻ ${prefix}hitungmundur 12 10 2022
+
+  *( ☪️ )  Islamic Menu*
+  ≻ ${prefix}quran <nomer>
+  ≻ ${prefix}quranaudio <surah> <ayat>
+  ≻ ${prefix}listquran <nomer>
+  ≻ ${prefix}kisahnabi <Nama Nabi>
 
   *( ✍️ )  Menu Tulis*
   ≻ ${prefix}nuliskanan <Text>
