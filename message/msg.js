@@ -1752,8 +1752,8 @@ case prefix+'readmore':
   case prefix+'more':
     if (args.length < 2) return reply(`Kirim perintah ${command} Text1|Text2`)
     var read = q.split("|")
-    var more = q.split("|")
-    var retmor = `${read}${readmore}${more}`
+    var more2 = q.split("|")
+    var retmor = `${read}${readmore}${more2}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
 			default:
