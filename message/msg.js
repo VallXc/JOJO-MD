@@ -1805,7 +1805,6 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			if (!isGroup && isCmd) {
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
-			if (chats.startsWith(``)
 		}
 	} catch (err) {
 		console.log(color('[ERROR]', 'red'), err)
