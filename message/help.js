@@ -110,6 +110,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
   ≻ ${prefix}say <Text>
+  ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
 
   *( ☪️ )  Islamic Menu*
