@@ -37,6 +37,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   
   _Ada Bug? Ketik ${prefix}report Bug mu_
   
+  ${readmore}
   *( 📍 )  Main Menu*
   ≻ ${prefix}menu
   ≻ ${prefix}owner
@@ -100,6 +101,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}undergrass <Text>
   ≻ ${prefix}coffecup <Text>
   ≻ ${prefix}woodheart <Text>
+  ≻ ${prefix}tahta <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -185,5 +187,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   - @sofunsyabi.id (Arasya)
   - M Hadi Firmansya (Hadi Api)
   - @melcanz_ (Amel)
-  - @hardianto.xyz (Anto)`
+  - @hardianto.xyz (Anto)
+  ${readmore}
+  Masukin Bot Ke Grup Ketik ${prefix}join _Link Gc Mu_`
 }

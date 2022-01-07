@@ -325,6 +325,31 @@ if (chats.startsWith("@6288213292687")){
 			    var teks = allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount)
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: buttonsDefault, footer: '© Jojo - Bot', mentions: [sender] })
 				break
+case prefix+'donasiah':
+  reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/6281319944917`)
+  break
+case prefix+'donasi':
+  var donasibut = [
+			{ callButton: { displayText: `Number Owner`, phoneNumber: `0813-1994-4917` } },
+			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
+			{ quickReplyButton: { displayText: `Aku Ingin Donasi`, id: `${prefix}donasiah` } },
+		]
+var teks = `  │
+  ├─ ❏ GOPAY
+  ├─ ❏ 088213292687
+  ├─ ❏ OVO
+  ├─ ❏ 088213292687
+  ├─ ❏ PULSA
+  ├─ ❏ 081319944917
+  ├─ ❏ PULSA2
+  ├─ ❏ 088213292687
+  ├─ ❏ INSTAGRAM
+  └─ ❏ https://www.instagram.com/sofunsyabi.jpg
+  
+  Donasi Untuk Upgrade Ke Fitur Premium
+  Note : Donasi Seikhlasnya`
+ conn.sendMessage(from, { caption: teks, image: {url: `https://textpro.me/images/user_image/2022/01/61d82988892b0.jpg`}, templateButtons: donasibut, footer: '© Jojo - Bot', mentions: [sender]} )  
+			    break
 case prefix+'sewa':
   case prefix+'daftarprem':
   var teks = `*[ LIST HARGA JOJO PREM ]*
@@ -339,8 +364,8 @@ _Yakin kamu mau daftar ke premium?_
 - Transfer Limit Game
 
 *LIST DAFTAR PREMIUM*
-- Rp.10.000 - Perminggu
-- Rp.25.000 - Perbulan
+- Rp.10.000 - Perbulan
+- Rp.25.000 - Dua Bulan
 - Rp.50.000 - Lima Bulan`
 			    conn.sendMessage(from, { caption: teks, location: { jpegThumbnail: fs.readFileSync(setting.pathimg) }, templateButtons: button5, footer: '© Jojo - Bot', mentions: [sender] })
 			    break
@@ -355,7 +380,7 @@ case prefix+'groupjojo':
                             let latensi = speed() - timestamp
                             textImg(`${latensi.toFixed(4)} Second`)
 		            break
-			case prefix+'donate':
+			/*case prefix+'donate':
 			case prefix+'donasi':
 			    reply(`◪ DONASI
   │
@@ -372,7 +397,7 @@ case prefix+'groupjojo':
   
   Donasi Untuk Upgrade Ke Fitur Premium
   Note : Donasi Seikhlasnya`)
-			    break
+			    break*/
 			case prefix+'owner':
 			  textImg("Wtf ngapain")
 			    for (let x of ownerNumber) {
@@ -862,12 +887,20 @@ reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon b
 //report
 case prefix+'report':
   case prefix+'jo':
-    case prefix+'join':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
         for (let i of ownerNumber) {
             conn.reply(i, `*[ PANGGILAN USER ]*\nMessage nya : ${q}`, msg)
+        }
+        limitAdd(sender, limit)
+        break
+case prefix+'join':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+        if (args.length < 2) return reply(`Kirim perintah ${command} Link Grup Kamu`)
+        reply(`Sukses Kirim Ke Owner, tunggu Laporan 3/4 menitan untuk masukan bot ke grup`)
+        for (let i of ownerNumber) {
+            conn.reply(i, `*[ JOIN GRUP ]*\nLink nya : ${q}`, msg)
         }
         limitAdd(sender, limit)
         break
@@ -1564,6 +1597,14 @@ case prefix+'undergrass':
 conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/under-grass?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
+case prefix+'tahta': case prefix+'hartatahta':
+  if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
+  reply(`Harta Tahta *${q}* Sedang Di Buat`)
+conn.sendMessage(from, {caption: `*HARTA*\n*TAHTA*\n*${q}*`, image: { url: `https://hardianto.xyz/api/maker/harta-tahta?apikey=${keyanto}&text=${q}`}}, {quoted: msg})
+limitAdd(sender, limit)
+break
 case prefix+'coffecup':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1753,7 +1794,7 @@ case prefix+'readmore':
     if (args.length < 2) return reply(`Kirim perintah ${command} Text1|Text2`)
     var read = q.split("|")
     var more2 = q.split("|")
-    var retmor = `${read}${readmore}${more2}`
+    var retmor = `${read}${readmore}${more}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
 			default:
@@ -1764,6 +1805,7 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			if (!isGroup && isCmd) {
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
+			if (chats.startsWith(``)
 		}
 	} catch (err) {
 		console.log(color('[ERROR]', 'red'), err)
