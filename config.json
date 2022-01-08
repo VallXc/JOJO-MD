@@ -5,9 +5,9 @@
   "sessionName": "session",
   "pathimg": "./media/Jojo.jpg",
   "gamewaktu": 90,
-  "limitCount": 25,
+  "limitCount": 40,
   "gcount": {
-	"prem": 35,
-	"user": 15
+	"prem": 70,
+	"user": 30
   }
 }
