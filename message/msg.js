@@ -1819,7 +1819,7 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			}
 			if (!isGroup) {
 				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${ketikan2}&lc=id`)
-         conn.sendMessage(from, { text: data.success }, { quoted: msg })
+         conn.sendMessage(from, { text: data.success })
 			}
 		}
 	} catch (err) {
