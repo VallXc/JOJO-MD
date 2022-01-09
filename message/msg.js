@@ -1808,22 +1808,6 @@ case prefix+'readmore':
     var retmor = `${read}${readmore}${more}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
-case prefix+'ghstalk':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  reply(mess.wait)
-  var data = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=GetSya`)
-  var data2 = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=GetSya`)
-  var .com = `*[ GITHUB STALK ]*
-
-🔰 Username : ${q}
-🔥 Bio : ${data.result.bio}
-📛 Repository : ${data.result.public_repo}
-👥 Followers : ${data.result.follower}
-👤 Following : ${data.result.following}`
-  limitAdd(sender, limit)
-  conn.sendMessage(from, {caption: .com, image: {url: data2.result.avatar}}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
