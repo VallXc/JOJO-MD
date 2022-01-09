@@ -1809,6 +1809,12 @@ case prefix+'readmore':
     var retmor = `${read}${readmore}${more}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
+case prefix+'simi':
+  case prefix+'jo':
+    if (args.length < 2) return reply(`Kirim perintah ${command} Haiii Jo!!`)
+    const cimcimi = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${q}&lc=id`)
+         conn.sendMessage(from, { text: cimcimi.success }, {quoted: msg})
+         break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
@@ -1816,10 +1822,6 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			}
 			if (!isGroup && isCmd) {
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
-			}
-			if (!isGroup) {
-				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${ketikan2}&lc=id`)
-         conn.sendMessage(from, { text: data.success })
 			}
 		}
 	} catch (err) {

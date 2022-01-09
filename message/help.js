@@ -47,6 +47,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}cekprem
   ≻ ${prefix}listprem
   ≻ ${prefix}jo <Text>
+  ≻ ${prefix}simi <Text>
 
   *( ✏️ )  Converter/Tools*
   ≻ ${prefix}stiker <ReplyGambar/Caption>
