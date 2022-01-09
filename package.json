@@ -1,7 +1,7 @@
 {
-  "name": "chitanda-md",
+  "name": "Jojo - MD",
   "version": "1.0.0",
-  "description": "Simple whatsapp bot with multi device.",
+  "description": "MULTI DEVICE",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "irfanhariyanto",
+  "author": "ARASYA RAFI",
   "license": "MIT",
   "dependencies": {
     "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
