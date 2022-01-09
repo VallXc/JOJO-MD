@@ -1,1 +1,1 @@
-worker: node *.js
+worker: npm i ms && npm start
