@@ -78,6 +78,7 @@ module.exports = async(conn, msg, m, setting) => {
 		const more = String.fromCharCode(8206)
     const readmore = more.repeat(4001)
 		const args = chats.split(' ')
+		const ketikan2 = chats.split('')
 		const command = chats.toLowerCase().split(' ')[0] || ''
 		const isCmd = command.startsWith(prefix)
 		const isGroup = msg.key.remoteJid.endsWith('@g.us')
@@ -1817,7 +1818,7 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
 			if (!isGroup) {
-				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${ketikan}&lc=id`)
+				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${ketikan2}&lc=id`)
          conn.sendMessage(from, { text: data.success }, { quoted: msg })
 			}
 		}
