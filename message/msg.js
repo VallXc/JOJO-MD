@@ -891,7 +891,6 @@ reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon b
 			    break
 //report
 case prefix+'report':
-  case prefix+'jo':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
