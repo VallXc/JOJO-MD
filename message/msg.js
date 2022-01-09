@@ -86,6 +86,7 @@ module.exports = async(conn, msg, m, setting) => {
 		const pushname = msg.pushName
 		const q = chats.slice(command.length + 1, chats.length)
 		const body = chats.startsWith(prefix) ? chats : ''
+		const ketikan = chats.startsWith() ? chats : ''
 		const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net'
 		const groupMetadata = isGroup ? await conn.groupMetadata(from) : ''
 		const groupName = isGroup ? groupMetadata.subject : ''
@@ -568,16 +569,19 @@ case prefix+'ytmp4': case prefix+'mp4':
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 			    break
-case prefix+'ytmp3':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+case prefix+'ytmp3': case prefix+'mp3':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=${jojoapi}`)
-			    conn.sendMessage(from, { audio: { url: data.result.result}}, {quoted: msg})
-  limitAdd(sender, limit)
-  break
+			    xfar.Youtube(args[1]).then( data => {
+			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
+			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
+			      conn.sendMessage(from, { document: { url: data.medias[7].url }, fileName: `${data.title}.mp3`, mimetype: 'audio/mp3' }, { quoted: msg })
+			      limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+			    break
 			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
@@ -1605,6 +1609,13 @@ case prefix+'tahta': case prefix+'hartatahta':
 conn.sendMessage(from, {caption: `*HARTA*\n*TAHTA*\n*${q}*`, image: { url: `https://hardianto.xyz/api/maker/harta-tahta?apikey=${keyanto}&text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
+case prefix+'tekneonlight':
+  if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
+conn.sendMessage(from, {caption: `Done`, image: { url: `https://hadi-api.herokuapp.com/api/textpro/futuristic-technology?teks=${q}`}}, {quoted: msg})
+limitAdd(sender, limit)
+break
 case prefix+'coffecup':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
@@ -1650,7 +1661,7 @@ case prefix+'quran':
   var data = await fetchJson(`https://hadi-api.herokuapp.com/api/quran?no=${q}`)
 			    reply(`*Surah :* ${data.result.surah}\n*Ayat :* \n${data.result.ayat}\n*Arti :* \n${data.result.terjemahan}`)
 			    break
-case prefix+'listquran':
+case prefix+'listquran': case prefix+'quranlist':
   var listquran = `*[ LIST QURAN ]*
 
 1. Al Fatihah (Pembuka)
@@ -1797,6 +1808,22 @@ case prefix+'readmore':
     var retmor = `${read}${readmore}${more}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
+case prefix+'ghstalk':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  reply(mess.wait)
+  var data = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=GetSya`)
+  var data2 = await fetchJson(`https://hadi-api.herokuapp.com/api/githubstalk?username=GetSya`)
+  var .com = `*[ GITHUB STALK ]*
+
+🔰 Username : ${q}
+🔥 Bio : ${data.result.bio}
+📛 Repository : ${data.result.public_repo}
+👥 Followers : ${data.result.follower}
+👤 Following : ${data.result.following}`
+  limitAdd(sender, limit)
+  conn.sendMessage(from, {caption: .com, image: {url: data2.result.avatar}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
@@ -1804,6 +1831,10 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			}
 			if (!isGroup && isCmd) {
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
+			}
+			if (isGroup) {
+				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${chats}&lc=id`)
+         conn.sendMessage(from, { text: data.success }, { quoted: msg })
 			}
 		}
 	} catch (err) {
