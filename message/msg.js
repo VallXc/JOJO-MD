@@ -1816,7 +1816,7 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 			if (!isGroup && isCmd) {
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
-			if (isGroup) {
+			if (!isGroup) {
 				const data = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${args[0]}&lc=id`)
          conn.sendMessage(from, { text: data.success }, { quoted: msg })
 			}
