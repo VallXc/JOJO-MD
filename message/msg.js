@@ -730,6 +730,13 @@ case prefix+'covid': case prefix+'covid19': case prefix+'kopit':
    conn.sendMessage(from, {caption: captnya, image: { url: `https://telegra.ph/file/86b3b90581f9d31353b62.jpg`}}, {quoted: msg})
    limitAdd(sender, limit)
    break
+case prefix+'igstalk': case prefix+'stalkig':
+  if (args.length < 2) return reply(`Masukan Username!!\nContoh : ${command} sofunsyabi.jpg`)
+  reply('🔎 Mencari Akun')
+ const data = await fetchJson(`https://hardianto.xyz/api/igstalk?username=${q}&apikey=hardianto`)
+var gestalk = `*[ INSTAGRAM STALKING ]*\n\nUsername : ${data.username}\nFull Name : ${data.fullname}\nVerified : ${data.verified}\nPostingan Reels : ${data.video_count_reel}\nFollowers : ${data.followers}\nFollowing : ${data.follow}\nBio : ${data.bio}`
+conn.sendMessage(from, {caption: gestalk, image: { url: data.thumbnail}}, {quoted: msg}).catch(() => reply("Maaf kak username tidak di temukan:(("))
+break
 case prefix+'shortlink':
   if (args.length < 2) return reply(`Kirim perintah ${command} link`)
   if (!isUrl(args[1])) return reply("Masukan Link")

@@ -133,6 +133,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}grupwa <Pencarian>
   ≻ ${prefix}ytsearch <Pencarian>
   ≻ ${prefix}pinterest <Querry>
+  ≻ ${prefix}igstalk <username>
   
   *( 🎮 )  Game & Fun Menu*
   ≻ ${prefix}tictactoe @tag
