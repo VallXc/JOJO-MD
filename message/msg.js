@@ -1275,7 +1275,6 @@ limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 				break
 			case prefix+'hidetag':
-			  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 		        if (!isGroup) return reply(mess.OnlyGrup)
 				if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
 			    let mem = [];

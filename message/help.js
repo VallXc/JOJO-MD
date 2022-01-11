@@ -36,7 +36,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   Note : Anggap _<>_ *Tidak Ada*
   
   _Ada Bug? Ketik ${prefix}report Bug mu_
-  
   ${readmore}
   *( 📍 )  Main Menu*
   ≻ ${prefix}menu
@@ -190,7 +189,5 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   - @sofunsyabi.id (Arasya)
   - M Hadi Firmansya (Hadi Api)
   - @melcanz_ (Amel)
-  - @hardianto.xyz (Anto)
-  ${readmore}
-  Masukin Bot Ke Grup Ketik ${prefix}join _Link Gc Mu_`
+  - @hardianto.xyz (Anto)`
 }
