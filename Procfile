@@ -1,1 +1,1 @@
-worker: npm i ms && npm start
+worker: npm i ms && npm i jimp && npm start
