@@ -731,11 +731,13 @@ case prefix+'covid': case prefix+'covid19': case prefix+'kopit':
    limitAdd(sender, limit)
    break
 case prefix+'igstalk': case prefix+'stalkig':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   if (args.length < 2) return reply(`Masukan Username!!\nContoh : ${command} sofunsyabi.jpg`)
   reply('🔎 Mencari Akun')
  var data = await fetchJson(`https://hardianto.xyz/api/igstalk?username=${q}&apikey=hardianto`)
 var gestalk = `*[ INSTAGRAM STALKING ]*\n\nUsername : ${data.username}\nFull Name : ${data.fullname}\nVerified : ${data.verified}\nPostingan Reels : ${data.video_count_reel}\nFollowers : ${data.followers}\nFollowing : ${data.follow}\nBio : ${data.bio}`
 conn.sendMessage(from, {caption: gestalk, image: { url: data.thumbnail}}, {quoted: msg}).catch(() => reply("Maaf kak username tidak di temukan:(("))
+limitAdd(sender, limit)
 break
 case prefix+'shortlink':
   if (args.length < 2) return reply(`Kirim perintah ${command} link`)
@@ -814,6 +816,15 @@ case prefix+'waifu':
                 var data = await pinterest(pickRandom(query))
 				var but = [{buttonId: `/waifu`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
 				conn.sendMessage(from, { caption: "Random Waifu", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
+			    limitAdd(sender, limit)
+ 			    break
+case prefix+'wp': case prefix+'wallpaper':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				reply(mess.wait)
+			    var query = [`wallpaper ${q} hd`,`wallpaper ${q}`,`wallpaper ${q} bagus`]
+                var data = await pinterest(pickRandom(query))
+				var but = [{buttonId: `${command}`, buttonText: { displayText: "Get Again Pict" }, type: 1 }]
+				conn.sendMessage(from, { caption: `Hasil Pencarian : *${q}*`, image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 			    limitAdd(sender, limit)
  			    break
 case prefix+'husbu':
