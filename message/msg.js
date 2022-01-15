@@ -227,10 +227,10 @@ module.exports = async(conn, msg, m, setting) => {
 		}
 		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+6281319944917` } },
 		const buttonsDefault = [
-			{ urlButton: { displayText: `𝘽𝙤𝙩 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢`, url : `https://t.me/docsjojo_bot?start=help` } },
+			//{ urlButton: { displayText: `Bot`, url : `https://t.me/docsjojo_bot?start=help` } },
 			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
 			{ quickReplyButton: { displayText: `🪀 Sewa Bot`, id: `${prefix}sewa` } },
-			{ quickReplyButton: { displayText: `🔥 Cek Premium`, id: `${prefix}cekprem` } },
+			//{ quickReplyButton: { displayText: `🔥 Cek Premium`, id: `${prefix}cekprem` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } }
 		]
 		const button5 = [
@@ -276,7 +276,8 @@ module.exports = async(conn, msg, m, setting) => {
 		  }
 		}
 if (chats.startsWith("@6288213292687")){
-  reply("Ada apa kak?ada yg bisa Bot Bantu?ketik !menu untuk melihat fitur bot yg tersedia ya kak")
+ var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }, {buttonId: `/infobot`, buttonText: { displayText: "INFO BOT" }, type: 1 }, {buttonId: `/infown`, buttonText: { displayText: "INFO OWNER" }, type: 1 }]
+conn.sendMessage(from, { text: "Ada apa kak tag aku?\nAku Ini Robot WhatsApp MULTI-DEVICE dan sudah di program melalui bahasa JavaScript dan di jalankan dengan NodeJs\n", buttons: but, footer: "Silahkan Pilih Button Jika Anda Bingung dengan program bot ini", templateButtons: but }, {quoted: msg})
 }
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
@@ -713,6 +714,24 @@ case prefix+'ytmp3': case prefix+'mp3':
                     reply('Sukses!')
                 }
                 break
+//Inpo Inpoan
+case prefix+'infown':
+  var templateown = [
+			{ callButton: {displayText: `Number Owner`, phoneNumber: `0813-1994-4917`} },
+			{ urlButton: { displayText: `Website Owner`, url : `https://arasya.herokuapp.com`} },
+			{ quickReplyButton: { displayText: `Menu Bot`, id: `${prefix}menu` } }
+		]
+
+buttonWithText(from, `*[ INFO OWNER ]*\n\n\nNama Owner : Arasya Rafi\nUmur : 16 Thn\nKelas : 10 - RPL\nSekolah : SMK MUHTIGA TANGSEL\nHobby : -\nMotivasi : "Jangan Pernah Berhenti Membaca, Karena Membaca Adalah Jembatan Ilmu"`, `Jilahkan Pilih`, templateown)
+break
+case prefix+'infobot':
+  var templatebot = [
+			{ urlButton: { displayText: `Thanks To`, url : `\n- Riyan\n- Arasya`} },
+			{ quickReplyButton: { displayText: `Menu Bot`, id: `${prefix}menu` } }
+		]
+
+buttonWithText(from, `*[ INFO BOT ]*\n\n\nNama Bot : Jojo Bot\nStatus : Online\nRun : RDP SERVER\nBrowse : Chrome\nNumber Bot : 6288213292687\nUmur : 1 Tahun 2 Bulan\n`, `Lihay Lebih Di Menu`, templatebot)
+break
 			// Random Menu
 			case prefix+'quote': case prefix+'quotes':
 			case prefix+'randomquote': case prefix+'randomquotes':
@@ -772,6 +791,7 @@ case prefix+'kbbi':
 				conn.sendMessage(from, { caption: "Random Cewe Cantik", image: { url: pickRandom(data.result) }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 			    limitAdd(sender, limit)
  			    break
+
 			case prefix+'cogan': case prefix+'cowok':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				reply(mess.wait)
@@ -1535,7 +1555,6 @@ var but = [{buttonId: `${command}`, buttonText: { displayText: 'Next Photo' }, t
 					conn.sendMessage(from, { caption: `Sangenya prem ini`, image: { url: data.result }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
 					break
 case prefix+'hentai':
-  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
    var data = await getBuffer(`https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}`)
 				var but = [{buttonId: `/hentai`, buttonText: { displayText: "Kirim Hentai Lagi" }, type: 1 }]
 				conn.sendMessage(from, { caption: "Hentai For Premium", image: { url: `https://hardianto.xyz/api/anime/random?nsfw=hentai&apikey=${keyanto}` }, buttons: but, footer: 'Pencet tombol dibawah untuk foto selanjutnya' }, { quoted: msg })
@@ -1621,7 +1640,6 @@ break
 case prefix+'tahta': case prefix+'hartatahta':
   if (args.length < 2) return reply(`Kirim perintah ${command} <Text1>`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-  reply("Tunggu Sebentar Sedang Membuat Makernya Sekitar 1 Menit Kurang")
   reply(`Harta Tahta *${q}* Sedang Di Buat`)
 conn.sendMessage(from, {caption: `*HARTA*\n*TAHTA*\n*${q}*`, image: { url: `https://hardianto.xyz/api/maker/harta-tahta?apikey=${keyanto}&text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
