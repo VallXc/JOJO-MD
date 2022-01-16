@@ -1751,6 +1751,7 @@ case prefix+'bahasa':
   
   Ketik /tts _Kode Bahasa_ _Text_
   contoh /tts id Arasya Ganteng`)
+  break
 case prefix+'nabi': case prefix+'kisahnabi':
   if (args.length < 2) return reply(`Kirim perintah ${command} Nama Nabi\nContoh : ${command} Muhammad`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
