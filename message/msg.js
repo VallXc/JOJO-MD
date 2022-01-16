@@ -1938,7 +1938,7 @@ conn.sendMessage(from, { text: "Maaf Command Belum Tersedia, Coba Beberapa Hari 
 				reply("Maaf Command Belum Tersedia, Coba Beberapa Hari Kedepan Ya_^")
 			}
 		}
-	} catch (err) {
+	} catch (e) {
 		console.log(color('[ERROR]', 'red'), err)
 	}
 }
