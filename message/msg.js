@@ -279,6 +279,8 @@ if (chats.startsWith("@6288213292687")){
  var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }, {buttonId: `/infobot`, buttonText: { displayText: "INFO BOT" }, type: 1 }, {buttonId: `/infown`, buttonText: { displayText: "INFO OWNER" }, type: 1 }]
 conn.sendMessage(from, { text: "Ada apa kak tag aku?\nAku Ini Robot WhatsApp MULTI-DEVICE dan sudah di program melalui bahasa JavaScript dan di jalankan dengan NodeJs\n", buttons: but, footer: "Silahkan Pilih Button Jika Anda Bingung dengan program bot ini", templateButtons: but }, {quoted: msg})
 }
+if (chats.startsWith("start=UNDIANJOJO")){
+  
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
 		  const ev = (sul) => {
@@ -1094,10 +1096,24 @@ case prefix+'n':
 case prefix+'apakah':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul','gak Betul']
+					const apa = ['Iya','Tidak', 'Bisa Jadi','Engga','I Dont Know','Aku Gatau']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
-conn.sendMessage(from, { text: `Pertanyaan : Apakah ${q}\nJawaban : ${kah}` }, { quoted: msg })
+conn.sendMessage(from, { text: `Pertanyaan : ${q}\nJawaban : ${kah}` }, { quoted: msg })
 limitAdd(sender, limit)
+					break
+case prefix+'truth':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  const trut = ['Pernah suka sama siapa aja? berapa lama?', 'Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)', 'apa ketakutan terbesar kamu?', 'pernah suka sama orang dan merasa orang itu suka sama kamu juga?', 'Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?', 'pernah gak nyuri uang nyokap atau bokap? Alesanya?', 'hal yang bikin seneng pas lu lagi sedih apa', 'pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?', 'pernah jadi selingkuhan orang?', 'hal yang paling ditakutin', 'siapa orang yang paling berpengaruh kepada kehidupanmu', 'hal membanggakan apa yang kamu dapatkan di tahun ini', 'siapa orang yang bisa membuatmu sange', 'siapa orang yang pernah buatmu sange', '(bgi yg muslim) pernah ga solat seharian?', 'Siapa yang paling mendekati tipe pasangan idealmu di sini', 'suka mabar(main bareng)sama siapa?', 'pernah nolak orang? alasannya kenapa?', 'Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget', 'pencapaian yang udah didapet apa aja ditahun ini?', 'kebiasaan terburuk lo pas di sekolah apa?']
+					const th = trut[Math.floor(Math.random() * trut.length)]
+					conn.sendMessage(from, {caption: `*Hai kak ${pushname}*\n\nOke Truth nya adalah : *${th}*`, image: { url: `https://telegra.ph/file/9c1100df63ed4b38ac80c.jpg`}}, {quoted: msg})
+limitAdd(sender, limit)
+break
+case prefix+'dare':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  const da = ['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu', 'telfon crush/pacar sekarang dan ss ke pemain', 'pap ke salah satu anggota grup', 'Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo', 'ss recent call whatsapp', 'drop emot 🤥 setiap ngetik di gc/pc selama 1 hari', 'kirim voice note bilang can i call u baby?', 'drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu', 'pake foto sule sampe 3 hari', 'ketik pake bahasa daerah 24 jam', 'ganti nama menjadi "gue anak lucinta luna" selama 5 jam', 'chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you', 'prank chat mantan dan bilang " i love u, pgn balikan', 'record voice baca surah al-kautsar', 'bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini', 'sebutkan tipe pacar mu!', 'snap/post foto pacar/crush', 'teriak gajelas lalu kirim pake vn kesini', 'pap mukamu lalu kirim ke salah satu temanmu', 'kirim fotomu dengan caption, aku anak pungut', 'teriak pake kata kasar sambil vn trus kirim kesini', 'teriak " anjimm gabutt anjimmm " di depan rumah mu', 'ganti nama jadi " BOWO " selama 24 jam', 'Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+  const re = da[Math.floor(Math.random() * da.length)]
+					conn.sendMessage(from, {caption: `*Hai kak ${pushname}*\n\nOke Dare nya adalah : *${th}*`, image: { url: `https://telegra.ph/file/49258ba6b53a3bc9c190e.jpg`}}, {quoted: msg})
+					limitAdd(sender, limit)
 					break
 case prefix+'bisakah':
   case prefix+'bisa':
@@ -1665,12 +1681,76 @@ case prefix+'woodheart':
 conn.sendMessage(from, {caption: "© Arasya && Hadi Api", image: { url: `https://hadi-api.herokuapp.com/api/photoxy/wood-hearth?text=${q}`}}, {quoted: msg})
 limitAdd(sender, limit)
 break
-case prefix+'say': case prefix+'tts':
+case prefix+'say':
   if (args.length < 2) return reply(`Kirim perintah ${command} Text`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
    conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true})
 limitAdd(sender, limit)
    break
+   case prefix+'tts':
+  if (args.length < 2) return reply(`Kirim perintah ${command} kode bahasa Text\nContoh : ${command} id Jojo Ganteng`)
+  if (!args[2]) return reply(`Kode Bahasa nya apa?\nLihat List kode  Bahasa, ketik ${prefix}bahasa\n\nContoh ${command} id Jojo Kun`)
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${args[1]}&language=${args[2]}`}, mimetype: 'audio/mp4', ptt: true})
+limitAdd(sender, limit)
+   break
+case prefix+'bahasa':
+  reply(`*List Kode Bahasa Untuk Fitur tts id*
+
+  af: Afrikaans,
+  sq: Albanian,
+  ar: Arabic,
+  hy: Armenian,
+  ca: Catalan,
+  zh: Chinese,
+  zh-cn: Chinese (Mandarin/China),
+  zh-tw: Chinese (Mandarin/Taiwan),
+  zh-yue: Chinese (Cantonese),
+  hr: Croatian,
+  cs: Czech,
+  da: Danish,
+  nl: Dutch,
+  en: English,
+  en-au: English (Australia),
+  en-uk: English (United Kingdom),
+  en-us: English (United States),
+  eo: Esperanto,
+  fi: Finnish,
+  fr: French,
+  de: German,
+  el: Greek,
+  ht: Haitian Creole,
+  hi: Hindi,
+  hu: Hungarian,
+  is: Icelandic,
+  id: Indonesian,
+  it: Italian,
+  ja: Japanese,
+  ko: Korean,
+  la: Latin,
+  lv: Latvian,
+  mk: Macedonian,
+  no: Norwegian,
+  pl: Polish,
+  pt: Portuguese,
+  pt-br: Portuguese (Brazil),
+  ro: Romanian,
+  ru: Russian,
+  sr: Serbian,
+  sk: Slovak,
+  es: Spanish,
+  es-es: Spanish (Spain),
+  es-us: Spanish (United States),
+  sw: Swahili,
+  sv: Swedish,
+  ta: Tamil,
+  th: Thai,
+  tr: Turkish,
+  vi: Vietnamese,
+  cy: Welsh
+  
+  Ketik /tts _Kode Bahasa_ _Text_
+  contoh /tts id Arasya Ganteng`)
 case prefix+'nabi': case prefix+'kisahnabi':
   if (args.length < 2) return reply(`Kirim perintah ${command} Nama Nabi\nContoh : ${command} Muhammad`)
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)

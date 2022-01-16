@@ -112,6 +112,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
   ≻ ${prefix}say <Text>
+  ≻ ${prefix}tts <KodeBahasa> <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
 
@@ -152,6 +153,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}gimana <Query>
   ≻ ${prefix}bisakah <Query>
   ≻ ${prefix}cekme
+  ≻ ${prefix}truth
+  ≻ ${prefix}dare
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
