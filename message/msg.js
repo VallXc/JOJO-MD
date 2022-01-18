@@ -1794,7 +1794,7 @@ case prefix+'readmore':
     break
 case prefix+'jo':
   case prefix+'simi':
-    if (isGroup)return reply("Ini adalah fitur ngobrol bareng bot, silahkan di pc pribadi aja"
+   
   const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
   conn.sendMessage(from, { text: cimcimi.success})
   break
