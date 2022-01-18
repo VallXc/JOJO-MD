@@ -883,7 +883,6 @@ reply("Lagu apaan tuh bingung nih bot, bentar bot cariin\n\nKlo bot gak respon b
 			    break
 //report
 case prefix+'report':
-  case prefix+'jo':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
         if (args.length < 2) return reply(`Kirim perintah ${command} laporan`)
         reply(`Sukses Kirim Ke Owner, Main² banned!`)
@@ -1795,8 +1794,8 @@ case prefix+'readmore':
     break
 case prefix+'jo':
   case prefix+'simi':
-    if (isGroup)return reply("Ini adalah fitur ngobrol bareng bot, silahkan di pc pribadi aja ya:))")
-  const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=hi&lc=vn`)
+    if (isGroup)return reply("Ini adalah fitur ngobrol bareng bot, silahkan di pc pribadi aja"
+  const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
   conn.sendMessage(from, { text: cimcimi.success})
   break
 			default:
