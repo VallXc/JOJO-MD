@@ -225,10 +225,7 @@ module.exports = async(conn, msg, m, setting) => {
 		}
 		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+6281319944917` } },
 		const buttonsDefault = [
-			{ urlButton: { displayText: `𝘽𝙤𝙩 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢`, url : `https://t.me/docsjojo_bot?start=help` } },
-			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
-			{ quickReplyButton: { displayText: `🪀 Sewa Bot`, id: `${prefix}sewa` } },
-			{ quickReplyButton: { displayText: `🔥 Cek Premium`, id: `${prefix}cekprem` } },
+			{ urlButton: { displayText: `JOJO - TEAM`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } }
 		]
 		const button5 = [
@@ -1253,7 +1250,6 @@ limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 				break
 			case prefix+'hidetag':
-			  if (!isPremium)return reply("Perintah Ini Khusus Pengguna Premium, Upgrade Fitur Premium Ke Owner, Ketik !owner")
 		        if (!isGroup) return reply(mess.OnlyGrup)
 				if (!isGroupAdmins && !isOwner) return reply(mess.GrupAdmin)
 			    let mem = [];
@@ -1797,6 +1793,12 @@ case prefix+'readmore':
     var retmor = `${read}${readmore}${more}`
     conn.sendMessage(from, { text: retmor}, { quoted: msg })
     break
+case prefix+'jo':
+  case prefix+'simi':
+    if (isGroup)return reply("Ini adalah fitur ngobrol bareng bot, silahkan di pc pribadi aja ya:))")
+  const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=hi&lc=vn`)
+  conn.sendMessage(from, { text: cimcimi.success})
+  break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
