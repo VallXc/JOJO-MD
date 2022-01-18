@@ -46,7 +46,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}cekprem
   ≻ ${prefix}listprem
   ≻ ${prefix}jo <Text>
-  ≻ ${prefix}simi <Text>
 
   *( ✏️ )  Converter/Tools*
   ≻ ${prefix}stiker <ReplyGambar/Caption>
@@ -112,7 +111,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
   ≻ ${prefix}say <Text>
-  ≻ ${prefix}tts <KodeBahasa> <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
 
@@ -132,9 +130,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}lirik <Judul>
   ≻ ${prefix}grupwa <Pencarian>
   ≻ ${prefix}ytsearch <Pencarian>
-  ≻ ${prefix}pinterest <Pencarian>
-  ≻ ${prefix}igstalk <Username>
-  ≻ ${prefix}wp <Pencarian>
+  ≻ ${prefix}pinterest <Querry>
   
   *( 🎮 )  Game & Fun Menu*
   ≻ ${prefix}tictactoe @tag
@@ -153,8 +149,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}gimana <Query>
   ≻ ${prefix}bisakah <Query>
   ≻ ${prefix}cekme
-  ≻ ${prefix}truth
-  ≻ ${prefix}dare
   
   *( 🏦 )  Payment & Bank*
   ≻ ${prefix}buylimit <Jumlah>
