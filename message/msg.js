@@ -574,7 +574,7 @@ case prefix+'ytmp3':
 			    reply(mess.wait)
 			    const yetee = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=Syaa`)
 
-conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted, : msg})
+conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted : msg})
   limitAdd(sender, limit)
   break
 			case prefix+'getvideo': case prefix+'getvidio':
