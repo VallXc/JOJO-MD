@@ -442,7 +442,7 @@ case prefix+'groupjojo':
 				.on("error", console.error)
 				.on("end", () => {
 				  exec(`webpmux -set exif ./sticker/data.exif ./${rand2} -o ./${rand2}`, async (error) => {
-				    conn.sendMessage(from, { sticker: fs.readFileSync(`./${rand2}`) }, { quoted: msg })
+				    conn.sendMessage(from, { sticker: fs.readFileSync(`./${rand2}`) })
 				    limitAdd(sender, limit)
 					fs.unlinkSync(`./${rand1}`)
 			            fs.unlinkSync(`./${rand2}`)
@@ -560,7 +560,8 @@ case prefix+'ytmp4': case prefix+'mp4':
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
 			    xfar.Youtube(args[1]).then( data => {
-			      var teks = `*Youtube Video Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[1].quality}\n*≻ Size :* ${data.medias[1].formattedSize}\n*≻ Url Source :* ${data.url}`
+			      //var teks = `*Youtube Video Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[1].quality}\n*≻ Size :* ${data.medias[1].formattedSize}\n*≻ Url Source :* ${data.url}`
+			      var teks = `Succes`
 			      conn.sendMessage(from, { video: { url: data.medias[1].url }, caption: teks }, { quoted: msg })
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
@@ -571,8 +572,9 @@ case prefix+'ytmp3':
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    var data = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=${jojoapi}`)
-			    conn.sendMessage(from, { audio: { url: data.result.result}}, {quoted: msg})
+			    const yetee = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=Syaa`)
+
+conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted, : msg})
   limitAdd(sender, limit)
   break
 			case prefix+'getvideo': case prefix+'getvidio':
@@ -1048,7 +1050,7 @@ case prefix+'n':
 case prefix+'apakah':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul','gak Betul']
+					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
 conn.sendMessage(from, { text: `Pertanyaan : Apakah ${q}\nJawaban : ${kah}` }, { quoted: msg })
 limitAdd(sender, limit)
@@ -1794,7 +1796,7 @@ case prefix+'readmore':
     break
 case prefix+'jo':
   case prefix+'simi':
-   if (isGroup)return reply("Hanya bisa di lakukan di chat pribadi:)")
+   if (isGroup)return reply("Hanya bisa di lakukan di chat pribadi:)"
   const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
   conn.sendMessage(from, { text: cimcimi.success})
   break
