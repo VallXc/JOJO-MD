@@ -572,7 +572,7 @@ case prefix+'ytmp3':
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    const yetee = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=Syaa`)
+			    const yetee = await fetchJson(`https://hadi-api.herokuapp.com/api/ytaudio?url=${q}`)
 
 conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted : msg})
   limitAdd(sender, limit)
