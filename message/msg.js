@@ -271,7 +271,13 @@ module.exports = async(conn, msg, m, setting) => {
 		  }
 		}
 if (chats.startsWith("@6288213292687")){
-  reply("Ada apa kak?ada yg bisa Bot Bantu?ketik !menu untuk melihat fitur bot yg tersedia ya kak")
+   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("Jojo")){
+   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("woy")){
+   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
@@ -572,7 +578,7 @@ case prefix+'ytmp3':
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    const yetee = await fetchJson(`https://hadi-api.herokuapp.com/api/ytaudio?url=${q}`)
+			    const yetee = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=Syaa`)
 
 conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted : msg})
   limitAdd(sender, limit)
