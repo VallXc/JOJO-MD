@@ -402,10 +402,10 @@ case prefix+'groupjojo':
   Note : Donasi Seikhlasnya`)
 			    break*/
 			case prefix+'owner':
-			  textImg("Wtf ngapain")
 			    for (let x of ownerNumber) {
 			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Owner', msg)
 			    }
+			    conn.sendMessage(from, {caption: "Ini Dia Ownerku", image: {url: `https://telegra.ph/file/eea599c24bf719e3c34d6.jpg`}}, {quoted: msg})
 			    break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
