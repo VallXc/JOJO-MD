@@ -1264,6 +1264,7 @@ limitAdd(sender, limit)
 				conn.sendMessage(from, { text: q ? q : '', mentions: mem })
 			    break
 case prefix+'kick':
+    if (!isOwner)return reply("_Perintah Ini Di Nonaktifkan Oleh Owner Karena Menyebabkan Nomer Bot Ke Banned 3 Kali_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -1284,6 +1285,7 @@ case prefix+'kick':
     break
 
 case prefix+'add':
+    if (!isOwner)return reply("_Perintah Ini Di Nonaktifkan Oleh Owner Karena Menyebabkan Nomer Bot Ke Banned 3 Kali_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
