@@ -572,17 +572,19 @@ case prefix+'ytmp4': case prefix+'mp4':
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 			    break
-case prefix+'ytmp3':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+case prefix+'ytmp3': case prefix+'mp3':
+			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (args.length < 2) return reply(`Kirim perintah ${command} link`)
 			    if (!isUrl(args[1])) return reply(mess.error.Iv)
 			    if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
 			    reply(mess.wait)
-			    const yetee = await fetchJson(`https://docs-jojoapi.herokuapp.com/api/yutub/audio?url=${q}&apikey=Syaa`)
-
-conn.sendMessage(from, { audio: {url : yetee.result.result}, mimetype: 'audio/mp4', ptt: true}, {quoted : msg})
-  limitAdd(sender, limit)
-  break
+			    xfar.Youtube(args[1]).then( data => {
+			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
+			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
+			      conn.sendMessage(from, { audio: { url: data.medias[7].url }, mimetype: 'audio/mp4' }, { quoted: msg })
+			      limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+			    break
 			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
@@ -1264,7 +1266,7 @@ limitAdd(sender, limit)
 				conn.sendMessage(from, { text: q ? q : '', mentions: mem })
 			    break
 case prefix+'kick':
-    if (!isOwner)return reply("_Perintah Ini Di Nonaktifkan Oleh Owner Karena Menyebabkan Nomer Bot Ke Banned 3 Kali_")
+  if (!isOwner)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -1285,7 +1287,7 @@ case prefix+'kick':
     break
 
 case prefix+'add':
-    if (!isOwner)return reply("_Perintah Ini Di Nonaktifkan Oleh Owner Karena Menyebabkan Nomer Bot Ke Banned 3 Kali_")
+  if (!isOwner)return reply("_Maaf Fitur Ini Di Nonaktifkan Oleh Owner, Karena menyebabkan nomer bot 3 kali ke banned_")
     if (!isGroup) return reply(mess.OnlyGrup)
     if (!isGroupAdmins) return reply(mess.GrupAdmin)
     if (!isBotGroupAdmins) return reply(mess.BotAdmin)
