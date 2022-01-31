@@ -1820,11 +1820,9 @@ case prefix+'wiki':
   case prefix+'wikipedia':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply 
     reply(mess.wait)
-    var que = `${q}`
-    var pin = await pinterest(pickRandom(que))
      var data = await fetchJson(`https://hadi-api.herokuapp.com/api/wiki?query=${q}`)
     var captionnya = `${data.result}\n\n${readmore} *© JOJOBOT*`
-    conn.sendMessage(from, {caption: captionnya, image: {url: pickRandom(pin.result)}}, {quoted: msg})
+    conn.sendMessage(from, {caption: captionnya, image: {url: `https://telegra.ph/file/b4a72e6438af9770300eb.jpg`}}, {quoted: msg})
     limitAdd(sender, limit)
     break
 			default:
