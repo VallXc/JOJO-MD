@@ -87,7 +87,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}foot
   ≻ ${prefix}gangbang
   
-  *( 🎨 )  Menu Maker By HadiApi*
+  *( 🎨 )  Menu Maker*
   ≻ ${prefix}glitch <Text> <Text>
   ≻ ${prefix}flaming <Text>
   ≻ ${prefix}shadow <Text>
@@ -102,6 +102,11 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}coffecup <Text>
   ≻ ${prefix}woodheart <Text>
   ≻ ${prefix}tahta <Text>
+  *PREMIUM FEATURE FOR USER FREE*
+  ≻ ${prefix}waifumaker <Text>
+  ≻ ${prefix}lolimaker <Text>
+  ≻ ${prefix}kanekimaker <Text>
+  ≻ ${prefix}guramaker <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -111,7 +116,8 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
-  ≻ ${prefix}wiki
+  ≻ ${prefix}wiki <Query>
+  ≻ ${prefix}igstalk <Username>
   ≻ ${prefix}say <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
