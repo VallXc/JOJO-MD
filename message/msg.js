@@ -1820,16 +1820,13 @@ case prefix+'wiki':
   case prefix+'wikipedia':
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply 
     reply(mess.wait)
-    var pin = await pinterest(pickRandom(q))
+    var que = `${q}`
+    var pin = await pinterest(pickRandom(que))
      var data = await fetchJson(`https://hadi-api.herokuapp.com/api/wiki?query=${q}`)
     var captionnya = `${data.result}\n\n${readmore} *© JOJOBOT*`
     conn.sendMessage(from, {caption: captionnya, image: {url: pickRandom(pin.result)}}, {quoted: msg})
     limitAdd(sender, limit)
     break
-    case prefix+'guramaker':
-      var data = await fetchJson(`https://hardianto.xyz/api/bot/gura?apikey=hardianto&nama=jojobot`)
-      var capt = `Maker Premium To Free\n\n*© JojoBot*`
-      conn.sendMessage(from, {caption: capt, image: {url: data}}, {quoted: msg})
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
