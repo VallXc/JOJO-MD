@@ -1818,11 +1818,20 @@ case prefix+'jo':
   break
 case prefix+'wiki':
   case prefix+'wikipedia':
-    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply 
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
     reply(mess.wait)
      var data = await fetchJson(`https://hadi-api.herokuapp.com/api/wiki?query=${q}`)
     var captionnya = `${data.result}\n\n${readmore} *© JOJOBOT*`
     conn.sendMessage(from, {caption: captionnya, image: {url: `https://telegra.ph/file/b4a72e6438af9770300eb.jpg`}}, {quoted: msg})
+    limitAdd(sender, limit)
+    break
+case prefix+'igstalk':
+  case prefix+'stalkig':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Username\nContoh : ${command} sofunsyabi.jpg`)
+    var data = await fetchJson(`https://hardianto.xyz/api/igstalk?username=${q}&apikey=hardianto`)
+    var caption = `*[ INSTAGRAM STALK ]*\n\n👤Username : ${data.username}\n📛 Full Name : ${data.fullname}\n✔️ Verified : ${data.verified}\n👥 Followers : ${data.followers}\n🫂 Following : ${data.follow}\n🗣️ Kategori ${data.category}\n\n${readmore} *© JOJOBOT*`
+    conn.sendMessage(from, {caption: caption, image: {url: data.thumbnail}}, {quoted: msg})
     limitAdd(sender, limit)
     break
 			default:
