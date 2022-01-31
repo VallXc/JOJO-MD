@@ -111,6 +111,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
+  ≻ ${prefix}wiki
   ≻ ${prefix}say <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022

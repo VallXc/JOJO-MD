@@ -225,8 +225,10 @@ module.exports = async(conn, msg, m, setting) => {
 		}
 		//{ callButton: { displayText: `Call Owner!`, phoneNumber: `+6281319944917` } },
 		const buttonsDefault = [
-			{ urlButton: { displayText: `JOJO - TEAM`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
-			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } }
+			{ urlButton: { displayText: `GRUP JOJO-BOT`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
+			{ urlButton: { displayText: `Thanks To`, url : `ThanksTo\n- Riyan\n- Arasya` } },
+			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `Pemilik Bot`, id: `${prefix}owner` } },
 		]
 		const button5 = [
 			{ callButton: { displayText: `Number Owner`, phoneNumber: `0813-1994-4917` } },
@@ -332,6 +334,7 @@ case prefix+'donasiah':
   reply(`Jika Ingin Donasi Harap Hubungi Owner\n\nhttps://wa.me/6281319944917`)
   break
 case prefix+'donasi':
+  case prefix+'donate':
   var donasibut = [
 			{ callButton: { displayText: `Number Owner`, phoneNumber: `0813-1994-4917` } },
 			{ urlButton: { displayText: `𝙂𝙧𝙪𝙥 𝙅𝙤𝙟𝙤`, url : `https://chat.whatsapp.com/HECLovHbCI6LVVH4Q8FN2C` } },
@@ -580,11 +583,14 @@ case prefix+'ytmp3': case prefix+'mp3':
 			    reply(mess.wait)
 			    xfar.Youtube(args[1]).then( data => {
 			      var teks = `*Youtube Audio Downloader*\n\n*≻ Title :* ${data.title}\n*≻ Quality :* ${data.medias[7].quality}\n*≻ Size :* ${data.medias[7].formattedSize}\n*≻ Url Source :* ${data.url}\n\n_wait a minute sending media..._`
-			      conn.sendMessage(from, { image: { url: data.thumbnail }, caption: teks }, { quoted: msg })
 			      conn.sendMessage(from, { audio: { url: data.medias[7].url }, mimetype: 'audio/mp4' }, { quoted: msg })
 			      limitAdd(sender, limit)
 				}).catch(() => reply(mess.error.api))
 			    break
+case prefix+'yt2mp3':
+              var res = await y2mateA(args[1])
+              
+              break
 			case prefix+'getvideo': case prefix+'getvidio':
 			    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
 			    if (!isQuotedImage) return reply(`Balas hasil pencarian dari ${prefix}ytsearch dengan teks ${command} <no urutan>`)
@@ -1810,6 +1816,20 @@ case prefix+'jo':
   const cimcimi = await fetchJson(`https://api.simsimi.net/v2/?text=${q}&lc=id`)
   conn.sendMessage(from, { text: cimcimi.success})
   break
+case prefix+'wiki':
+  case prefix+'wikipedia':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply 
+    reply(mess.wait)
+    var pin = await pinterest(pickRandom(q))
+     var data = await fetchJson(`https://hadi-api.herokuapp.com/api/wiki?query=${q}`)
+    var captionnya = `${data.result}\n\n${readmore} *© JOJOBOT*`
+    conn.sendMessage(from, {caption: captionnya, image: {url: pickRandom(pin.result)}}, {quoted: msg})
+    limitAdd(sender, limit)
+    break
+    case prefix+'guramaker':
+      var data = await fetchJson(`https://hardianto.xyz/api/bot/gura?apikey=hardianto&nama=jojobot`)
+      var capt = `Maker Premium To Free\n\n*© JojoBot*`
+      conn.sendMessage(from, {caption: capt, image: {url: data}}, {quoted: msg})
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
