@@ -273,13 +273,19 @@ module.exports = async(conn, msg, m, setting) => {
 		  }
 		}
 if (chats.startsWith("@6288213292687")){
-   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("eh")){
+   conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+}
+if (chats.startsWith("Eh")){
+   conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("Jojo")){
-   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 if (chats.startsWith("woy")){
-   conn.sendMessage(from, { audio: {url : `https://cdn.sndup.net/qjst/audionayla.mp3?token=bzzyU7k-iI6tuNj4FlnkK5kXxyUTXe08Y5yE0sZDMqI&token_path=%2Fqjst%2F&expires=1642637893`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
+   conn.sendMessage(from, { audio: {url : `https://d.top4top.io/m_22231oj7h1.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 }
 		if (chats.startsWith("> ") && isOwner) {
 		console.log(color('[EVAL]'), color(moment(msg.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Dari Owner aowkoakwoak`))
@@ -408,7 +414,7 @@ case prefix+'groupjojo':
 			    for (let x of ownerNumber) {
 			      sendContact(from, x.split('@s.whatsapp.net')[0], 'Owner', msg)
 			    }
-			    conn.sendMessage(from, {caption: "Ini Dia Ownerku", image: {url: `https://telegra.ph/file/eea599c24bf719e3c34d6.jpg`}}, {quoted: msg})
+			    conn.sendMessage(from, { audio: {url : `https://b.top4top.io/m_2223iin241.mp3`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 			    break
 			case prefix+'cekprem':
             case prefix+'cekpremium':
@@ -1635,7 +1641,7 @@ break
 case prefix+'say': case prefix+'tts':
   if (args.length < 2) return reply(`Kirim perintah ${command} Text`)
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true})
+   conn.sendMessage(from, { audio: {url : `https://hadi-api.herokuapp.com/api/tts?text=${q}&language=id`}, mimetype: 'audio/mp4', ptt: true}, {quoted: msg})
 limitAdd(sender, limit)
    break
 case prefix+'nabi': case prefix+'kisahnabi':
@@ -1839,6 +1845,7 @@ case prefix+'guramaker':
     if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo`)
    conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gura?apikey=hardianto&nama=${q}`}}, {quoted: msg})
    limitAdd(sender, limit)
+   break
    case prefix+'kanekimaker':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
     if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo`)
