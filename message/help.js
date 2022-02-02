@@ -102,11 +102,11 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}coffecup <Text>
   ≻ ${prefix}woodheart <Text>
   ≻ ${prefix}tahta <Text>
-  *PREMIUM FEATURE FOR USER FREE*
   ≻ ${prefix}waifumaker <Text>
   ≻ ${prefix}lolimaker <Text>
   ≻ ${prefix}kanekimaker <Text>
   ≻ ${prefix}guramaker <Text>
+  ≻ ${prefix}logogaming <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -116,9 +116,12 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}kbbi <Kata>
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
+  ≻ ${prefix}cerpen
+  ≻ ${prefix}cersex
   ≻ ${prefix}wiki <Query>
   ≻ ${prefix}igstalk <Username>
   ≻ ${prefix}say <Text>
+  ≻ ${prefix}qr <Text>
   ≻ ${prefix}readmore <Text>|<Text>
   ≻ ${prefix}hitungmundur 12 10 2022
 

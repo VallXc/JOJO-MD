@@ -1864,6 +1864,35 @@ case prefix+'waifumaker':
    conn.sendMessage(from, {caption: `Premium Feature For User Free`, image: {url: `https://hardianto.xyz/api/bot/gfx4?apikey=hardianto&text1=${args[1]}&text2=${args[2]}`}}, {quoted: msg})
    limitAdd(sender, limit)
    break
+case prefix+'qrcode':
+  case prefix+'qr':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo bot`)
+    reply(`Membuat Qr Code`)
+    conn.sendMessage(from, {caption: `*QR CODE*`, image: {url: `https://docs-jojo.herokuapp.com/api/qrcode?text=${q}`}}, {quoted: msg})
+    limitAdd(sender, limit)
+    break
+case prefix+'gaming':
+  case prefix+'logogaming':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo bot`)
+   conn.sendMessage(from, {image: {url: `https://docs-jojo.herokuapp.com/api/gaming?text=${q}`}}, {quoted: msg})
+   limitAdd(sender, limit)
+   break
+case prefix+'cersex':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cersex`)
+  var caption = `*[ CERSEX ]*\n\n*Judul* : ${data.result.judul}\n*Cerita* : ${data.result.cersex}\n${readmore} *JOJOBOT*`
+  conn.sendMessage(from, {caption: caption, image: {url: data.result.img}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'cerpen':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)
+  var text = `*[ CERPEN ]*\n\n*Judul* : ${data.result.title}\n*Kategori* : ${data.result.kategori}\n*Cerritanya* : ${data.result.cerpen}`
+  conn.sendMessage(from, {text: text}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
 			default:
 			if (isGroup && isCmd) {
 				var but = [{buttonId: `/menu`, buttonText: { displayText: "MENU" }, type: 1 }]
