@@ -1872,13 +1872,6 @@ case prefix+'qrcode':
     conn.sendMessage(from, {caption: `*QR CODE*`, image: {url: `https://docs-jojo.herokuapp.com/api/qrcode?text=${q}`}}, {quoted: msg})
     limitAdd(sender, limit)
     break
-case prefix+'gaming':
-  case prefix+'logogaming':
-  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-    if (args.length < 2) return reply(`Kirim perintah ${command} Text\nContoh : ${command} Jojo bot`)
-   conn.sendMessage(from, {image: {url: `https://docs-jojo.herokuapp.com/api/gaming?text=${q}`}}, {quoted: msg})
-   limitAdd(sender, limit)
-   break
 case prefix+'cersex':
   if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
   var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cersex`)

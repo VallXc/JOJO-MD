@@ -106,7 +106,6 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}lolimaker <Text>
   ≻ ${prefix}kanekimaker <Text>
   ≻ ${prefix}guramaker <Text>
-  ≻ ${prefix}logogaming <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
