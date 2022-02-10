@@ -106,6 +106,12 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}lolimaker <Text>
   ≻ ${prefix}kanekimaker <Text>
   ≻ ${prefix}guramaker <Text>
+  ≻ ${prefix}leaves <Text>
+  ≻ ${prefix}pornhub <Text>
+  ≻ ${prefix}3d <Text>
+  ≻ ${prefix}christmas <Text>
+  ≻ ${prefix}logowolf <Text>
+  ≻ ${prefix}logowolf2 <Text>
   
   *( 🪀 )  Menu Lain Nya*
   ≻ ${prefix}shortlink <Link>
@@ -113,6 +119,7 @@ exports.allmenu = (sender, prefix, pushname, isOwner, isPremium, balance, limit,
   ≻ ${prefix}ssdesktop <Link>
   ≻ ${prefix}sshpfull <Link>
   ≻ ${prefix}kbbi <Kata>
+  ≻ ${prefix}faktaunik
   ≻ ${prefix}darkjokes
   ≻ ${prefix}covid19
   ≻ ${prefix}cerpen

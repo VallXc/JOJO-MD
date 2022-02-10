@@ -1824,6 +1824,7 @@ case prefix+'jo':
   break
 case prefix+'wiki':
   case prefix+'wikipedia':
+    if (args.length < 2) return reply(`Kirim perintah ${command} Kata\nContoh : ${command} WhatsApp`)
     if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
     reply(mess.wait)
      var data = await fetchJson(`https://hadi-api.herokuapp.com/api/wiki?query=${q}`)
@@ -1885,6 +1886,56 @@ case prefix+'cerpen':
   var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)
   var text = `*[ CERPEN ]*\n\n*Judul* : ${data.result.title}\n*Kategori* : ${data.result.kategori}\n*Cerritanya* : ${data.result.cerpen}`
   conn.sendMessage(from, {text: text}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'faktaunik':
+  case prefix+'faktamenarik':
+    if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+     var data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fakta-unik`)
+var caption = `Tahukah kamu?
+${data.result}`
+var but = [{buttonId: `${command}`, buttonText: { displayText: "Fakta Unik" }, type: 1 }]
+conn.sendMessage(from, { text: caption, buttons: but, footer: "© Jojo Bot", templateButtons: but }, {quoted: msbut
+limitAdd(sender, limit)
+break
+//maker arasya
+case prefix+'leaves':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/natural-leaves?apikey=Joo&text=${q}`)
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'pornhub':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/porn-hub?apikey=Joo&text1=${args[1]}&text2=${args[2]}`)
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'3d':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/3d-gradient?apikey=Joo&text=${q}`)
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'christmas'
+if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/christmas?apikey=Joo&text=${q}`)
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'logowolf':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/logo-wolf2?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
+
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
+  limitAdd(sender, limit)
+  break
+case prefix+'logowolf2':
+  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+  var data = await fetchJson(`https://jojo-docsapi.herokuapp.com/api/textpro/logo-wolf?apikey=Joo&text=${args[1]}&text2=${args[2]}`)
+  conn.sendMessage(from, {caption: `Succes!`, image: {url: data.result}}, {quoted: msg})
   limitAdd(sender, limit)
   break
 			default:
